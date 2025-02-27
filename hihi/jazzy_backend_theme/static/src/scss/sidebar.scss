@@ -1,0 +1,156 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin tablet_sm {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+#sidebar_panel {
+    padding: 8px;
+    position: fixed;
+    top: 68px;
+    display: none;
+    height: calc(100% - 62px);
+    left: 0;
+    right: 0;
+    z-index: 110;
+    transform-origin: 200px top;
+    will-change: opacity, transform;
+    animation: menuGrowth ease 0.3s;
+    background:
+        radial-gradient(137.18% 137.18% at 133.89% 60.37%, #ed1d25 0%, rgba(59, 89, 202, 0.18) 100%)
+            /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+        radial-gradient(105.87% 105.87% at 4.16% 5.34%, #005db2 0%, rgba(100, 100, 100, 0) 100%)
+            /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+        #0d091d;
+    @include tablet_sm {
+        transform-origin: 50px top;
+    }
+
+    @include tablet {
+        transform-origin: 50px top;
+    }
+
+    @include mobile {
+        transform-origin: 50px top;
+    }
+
+    .sidebar {
+        .sidebar_close {
+            text-align: right;
+            a {
+                font-size: unset;
+                line-height: 1.15;
+                img {
+                    width: 16px;
+                }
+            }
+        }
+
+        .sidebar_head {
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .sidebar_body {
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+            overflow-x: auto;
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar {
+                width: 8px;
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #9b9b9b;
+            }
+            .sidebar_menu {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+                width: 1000px;
+                margin: 0 auto;
+
+                li {
+                    width: 20%;
+
+                    @include tablet {
+                        width: 25%;
+                    }
+
+                    @include tablet_sm {
+                        width: 33.3333%;
+                    }
+
+                    @include mobile {
+                        width: 50%;
+                    }
+
+                    a {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 24px 12px;
+                        margin: 0 auto;
+                        width: fit-content;
+
+                        transition: all 0.1s linear;
+                        img {
+                            width: 70px;
+                        }
+
+                        span {
+                            color: #fff;
+                            margin-top: 12px;
+                            text-align: center;
+                        }
+                        &:hover {
+                            margin-top: -5px;
+                        }
+                    }
+                }
+
+                @include tablet {
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes menuGrowth {
+    from {
+        border-radius: 0 30% 80% 60%;
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        border-radius: 0 0 0 0;
+    }
+}

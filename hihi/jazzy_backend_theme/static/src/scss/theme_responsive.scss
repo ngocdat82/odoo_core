@@ -1,0 +1,21 @@
+@media screen and (max-width: 992px)  {
+    .o_purchase_dashboard .table > thead > tr > td.o_text,
+    .o_purchase_dashboard .table > thead > tr > td.o_main,
+    .o_purchase_dashboard .table tbody > tr > td.o_text {
+        padding: 0;
+    }
+    body > div.o_action_manager > div > div.o_content > div > div.o_purchase_dashboard.container > div > div.col-sm-5 > table > thead > tr > td.o_text > div,
+    body > div.o_action_manager > div > div.o_content > div > .o_purchase_dashboard.o_container_small > div > div.col-sm-5 > table > thead > tr > td.o_text > div,
+    body > div.o_action_manager > div > div.o_content > div > div.o_purchase_dashboard.container > div > div.col-sm-5 > table > tbody > tr > td.o_text > div,
+    body > div.o_action_manager > div > div.o_content > div > .o_purchase_dashboard.o_container_small > div > div.col-sm-5 > table > tbody > tr > td.o_text > div,
+    .o_purchase_dashboard .table > thead > tr > td.o_main > a,
+    .o_purchase_dashboard .table tbody > tr > td.o_main > a {
+        font-size: 13px;
+    }
+    body > div.o_action_manager > div > div.o_content > div > div.o_purchase_dashboard.container > div > div.col-sm-7 > table > thead > tr > td,
+    body > div.o_action_manager > div > div.o_content > div > div.o_purchase_dashboard.container > div > div.col-sm-7 > table > tbody > tr > td{
+        font-size: 13px !important;
+        text-align: center;
+        padding: 0;
+    }
+}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--  Layout view template  -->
+    <template id="code_custom_layout" inherit_id="web.layout" name="Custom Layout">
+        <xpath expr="//meta[@content='IE=edge']" position="after">
+            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap" rel="stylesheet"/>
+        </xpath>
+    </template>
+
+    <!-- custom layout , insert logo and image mobifone -->
+    <template id="login_layout" inherit_id="web.login_layout" name="Login Layout Inherit">
+        <xpath expr="//div[hasclass('container')]" position="attributes">
+            <attribute name="class">container container-custom-layout</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('container')]" position="inside">
+            <div class="login_img_container">
+                <div class="login_img">
+                    <img src="/jazzy_backend_theme/static/src/img/image_main_login.png"/>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]/div" position="replace"/>
+        <xpath expr="//div[hasclass('card-body')]" position="before">
+            <div class="login_logo">
+                <!-- <div class="login_logo_box">
+                        <img src="/jazzy_backend_theme/static/src/img/1erp_logo.jpg"/>
+                    </div> -->
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('mt-4')]" position="replace"/>
+    </template>
+    <!-- custom form login -->
+    <template id="login" inherit_id="web.login" name="Login Inherit">
+        <xpath expr="//form[contains(@t-attf-class, 'oe_login_form')]" position="before">
+            <h3 class="form_title">Đăng nhập</h3>
+            <p class="form_subtile_login">Vui lòng điền thông tin để đăng nhập.</p>
+        </xpath>
+        <xpath expr="//label[@for='db']" position="replace" />
+        <xpath expr="//label[@for='login']" position="replace">
+            <!-- <label class="form-label" for="login">Email</label> -->
+        </xpath>
+        <xpath expr="//label[@for='password']" position="replace">
+            <!-- <label class="form-label" for="password">Mật khẩu</label> -->
+        </xpath>
+        <xpath expr="//input[@name='login']" position="attributes">
+            <attribute name="placeholder">Nhập email</attribute>
+            <attribute name="class">login-input</attribute>
+        </xpath>
+        <xpath expr="//input[@name='password']" position="attributes">
+            <attribute name="placeholder">Nhập mật khẩu</attribute>
+            <attribute name="class">login-input</attribute>
+        </xpath>
+        <!-- Password -->
+        <xpath expr="//input[@name='password']" position="inside">
+            <i class="fa fa-eye-slash" id="togglePassword" onclick="myFunction(event)"></i>
+            <script>
+                    function myFunction(event) {
+                        const togglePassword = document.querySelector("#togglePassword");
+                        const password = document.querySelector("#password");
+
+                        event.preventDefault()
+                        const type = password.getAttribute("type") === "password" ? "text" : "password";
+                        password.setAttribute("type", type);
+                        
+                        // toggle the icon
+                        event.target.classList.toggle("fa-eye");
+                        event.target.classList.toggle("fa-eye-slash");
+                    }
+            </script>
+        </xpath>
+    </template>
+
+    <!--        <template id="reset_password" inherit_id="auth_signup.reset_password" name="Reset Password Inherit">-->
+    <!--            <xpath expr="//form[hasclass('oe_reset_password_form')]" position="before">-->
+    <!--                <h3 class="form_title">Đặt lại mật khẩu</h3>-->
+    <!--            </xpath>-->
+    <!--            <xpath expr="//label[@for='login']" position="replace">-->
+    <!--                <label class="form-label" for="login">Email của bạn</label>-->
+    <!--            </xpath>-->
+    <!--            <xpath expr="//button[hasclass('btn-block')]" position="replace">-->
+    <!--                <button type="submit" class="login-button">Xác nhận</button>-->
+    <!--            </xpath>-->
+    <!--            <xpath expr="//div[hasclass('oe_login_buttons')]/div[1]" position="replace">-->
+    <!--                <a t-if="not token" t-attf-href="/web/login?{{ keep_query() }}">Quay lại đăng nhập</a>-->
+    <!--                <a t-if="invalid_token" href="/web/login">Quay lại đăng nhập</a>-->
+    <!--            </xpath>-->
+    <!--        </template>-->
+    <!-- custom form signin -->
+    <template id="signup_form_custom" inherit_id="auth_signup.fields" name="Signup Inherit">
+        <xpath expr="//label[@for='login']" position="replace">
+            <label class="form-label" for="login">Email của bạn</label>
+        </xpath>
+        <xpath expr="//input[@name='name']" position="attributes">
+            <attribute name="placeholder">Vd: Mobifone</attribute>
+            <attribute name="class">form-control</attribute>
+        </xpath>
+        <xpath expr="//label[@for='name']" position="replace">
+            <label class="form-label" for="name">Tên của bạn</label>
+        </xpath>
+        <xpath expr="//label[@for='password']" position="replace">
+            <label class="form-label" for="password">Mật khẩu</label>
+        </xpath>
+        <xpath expr="//label[@for='confirm_password']" position="replace">
+            <label class="form-label" for="confirm_password">Nhập lại mật khẩu</label>
+        </xpath>
+    </template>
+    <template id="signup_form_button_custom" inherit_id="auth_signup.signup" name="Signup Button Inherit">
+        <xpath expr="//form[hasclass('oe_signup_form')]" position="before">
+            <h3 class="form_title">Đăng ký tài khoản</h3>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_login_buttons')]/button" position="replace">
+            <button type="submit" class="login-button">Đăng ký</button>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_login_buttons')]/a" position="replace">
+            <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link btn-sm" role="button">Đã có tài khoản?</a>
+        </xpath>
+    </template>
+    <template id="frontend_layout_custom" inherit_id="web.frontend_layout" name="custom layout Inherit">
+        <xpath expr="//main" position="attributes">
+            <attribute name="t-attf-class">for-login</attribute>
+        </xpath>
+    </template>
+</odoo>

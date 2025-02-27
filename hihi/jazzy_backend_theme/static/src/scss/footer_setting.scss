@@ -1,0 +1,41 @@
+footer{
+    padding: 35px;
+    background-position: bottom;
+    background-size: cover;
+    div.list-info{
+        .info-item{
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            p{
+                margin: 0 0 0 10px;
+            }
+        }
+    }
+    div.list-social-media{
+        .list-unstyled{
+            display: flex;
+        }
+    }
+    .form-content{
+        input{
+            background: none;
+            color: #FFFFFF !important;
+        }
+        button{
+            background-color:#FFFFFF !important;
+            border-color: #FFFFFF !important;
+            color: #005FAB !important;
+            width: 100%;
+        }
+    }
+    .line-straight{
+        height: 1px;
+        background: #FFFFFF;
+    }
+    .footer-copyright{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

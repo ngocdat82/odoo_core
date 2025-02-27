@@ -1,0 +1,292 @@
+@mixin mobile {
+    @media screen and (max-width: 480px){
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 992px){
+        @content;
+    }
+}
+
+@mixin tablet_sm {
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (max-width: 1139px){
+        @content;
+    }
+}
+@media screen and (max-width: 992px)  { 
+    #wrapwrap {
+        /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+        main.for-login-wrapper{
+            box-shadow: none !important;
+            div.oe_website_login_container{
+                border-radius: 0.5rem !important;
+                padding: 20px !important;
+                width: 100%;
+                margin: 10px !important;
+            }
+            div.login_img_container{
+                display: none;
+            }
+        }
+        main.for-login {
+            .login_logo {
+                .login_logo_box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .container-custom-layout {
+                .o_database_list {
+                    width: 80% !important;
+                    padding: 55px 20px !important;
+                    border-radius: 0.5rem !important;
+                    .card-body{
+                        padding: 0 !important;
+                        width: 350px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@font-face {
+    font-family: 'Fira Sans' !important;
+    //src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap');
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif !important;
+}
+
+#wrapwrap {
+    background: #f2f2f2;
+    //   background-image: url('../img/bg.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    //   justify-content: center;
+
+    @include desktop {
+        overflow: auto;
+    }
+    main.for-login-wrapper{
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div.oe_website_login_container{
+            margin: 0;
+            height: 100%;
+            padding: 55px;
+            border-radius: 0.5rem 0 0 0.5rem;
+            .form_title{
+                text-align: left;
+            }
+            .form_subtile_login{
+                margin-bottom: 40px;
+            }
+            form.oe_login_form{
+                .login-button{
+                    margin-top: 40px;
+                }
+            }
+        }
+        div.oe_website_login_container:before{
+            background: unset;
+        }
+        div.login_img_container{
+            padding: 30px;
+            background: linear-gradient(0deg, #0B6CCD 20.88%, #15185B 120.19%);
+            height: 100%;
+            border-radius: 0 0.5rem 0.5rem 0;
+            div.login_img{
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    main.for-login {
+        -webkit-box-flex: unset !important;
+        -webkit-flex: unset !important;
+        flex: unset !important;
+        margin: auto 0;
+        .login_logo {
+            max-width: 1140px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            background: #FFFFFF;
+            margin-bottom: 50px;
+            @include tablet {
+                max-width: 100%;
+                justify-content: center;
+            }
+
+            .login_logo_box {
+                @include tablet {
+                    width: 100%;
+                }
+                img {
+                    width: 240px;
+                    @include mobile {
+                        width: 200px;
+                    }
+                }
+            }
+        }
+        .container-custom-layout {
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            @include tablet {
+                max-width: 100%;
+                justify-content: center;
+            }
+
+            @include desktop {
+                max-width: 960px;}
+
+            .login_img_container {
+                width: 50%;
+                .login_img{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    border-radius: 0 0.5rem 0.5rem 0;
+                    background: linear-gradient(0deg, #0B6CCD 20.88%, #15185B 120.19%);
+                }
+                @include tablet {
+                    display: none;
+                }
+
+            }
+
+            .o_database_list {
+                max-width: 100% !important;
+                width: 50%;
+                padding: 55px 75px;
+                background-color: #FFFFFF !important;
+                border-radius: 0.5rem 0 0 0.5rem;
+                @include mobile {
+                    width: 90% !important;
+                }
+
+                .form_title {
+                    font-size: 28px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    color: #212529;
+                    margin-bottom: 5px;
+                }
+                .form_subtile_login{
+                    margin-bottom: 38px;
+                }
+
+                .card-body {
+                    padding: 0;
+                    width: 350px !important;
+                    .form-group {
+
+                        .form-control {
+                            padding: 12px 20px;
+                            height: unset;
+                            font-size: 14px;
+                            border-radius: 6px;
+                            color: #131518;
+
+                            &::placeholder {
+                                opacity: 0.6;
+                            }
+
+                            &:focus {
+                                border: solid 1px #4877EF ;
+                            }
+
+                            &::-ms-reveal {
+                                display: none;
+                            }
+                            &::-ms-clear {
+                                display: none;
+                            }
+                        }
+
+                        .form-label {
+                            margin-bottom: 10px;
+                        }
+
+
+                    }
+                    .oe_login_buttons {
+                        .login-button {
+                            background-color: #4877EF;
+                            border-radius: 6px;
+                            display: block;
+                            padding: 13px;
+                            text-align: center;
+                            color: #ffffff;
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            margin-top: 40px;
+                            &:hover {
+                                opacity: 0.9;
+                            }
+                        }
+
+                        a {
+                            margin-top: 15px;
+                            display: block;
+                            font-size: 14px;
+                            color: #0060ad;
+                        }
+
+                        .form_question {
+                            font-size: 14px;
+                            margin-top: 0 !important;
+                            a {
+                                color: #0060ad;
+                            }
+                        }
+                    }
+
+                    .oe_signup_form {
+
+                        .field-password {
+                            padding-top: 0 !important;
+                        }
+                    }
+                }
+            }
+
+            .mx-auto {
+                margin: 0;
+            }
+        }
+    }
+    .field-password + a, button + a, .form_question a{
+        font-weight: 600;
+        color: #004A8E;
+    }
+    .field-password{
+        position: relative;
+    }
+    i#togglePassword{
+        right: 14px;
+        position: absolute;
+        top: 15px;
+    }
+}

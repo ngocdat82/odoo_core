@@ -1,0 +1,22 @@
+body {
+    font-family: 'Fira Sans', sans-serif !important;
+    background-color: #f8f8fb;
+}
+
+.color-header {
+    background-color: white;
+}
+
+.navbar-brand {
+    margin: 10px 0 0 50px;
+}
+
+#collapsibleNavbar {
+    margin: 10px 50px;
+}
+
+.image-size {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}

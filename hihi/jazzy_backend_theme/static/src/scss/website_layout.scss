@@ -1,0 +1,115 @@
+@mixin mobile {
+    @media screen and (max-width: 480px){
+        @content;
+    }
+}
+
+.oe_website_login_container {
+    position: relative;
+
+    &:before{
+    content: "";
+    width: 500px;
+    height: 510px;
+    position: absolute;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(177, 227, 234, 0.6);
+    z-index: -10;
+    }
+
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 45px 10px rgba(0,0,0,0.37);
+    -webkit-box-shadow:  0px 0px 45px 10px rgba(0,0,0,0.37);
+    -moz-box-shadow:  0px 0px 45px 10px rgba(0,0,0,0.37);
+
+    @include mobile {
+        width: 90%;
+    }
+    .form_title {
+        font-size: 28px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #212529;
+        text-align: center;
+    }
+
+    .oe_login_form {
+        margin: 0;
+        max-width: unset;
+    }
+
+    .form-group {
+        margin-top: 22px;
+
+        .form-control {
+            padding:12px 16px;
+            height: unset;
+            border-radius: 6px;
+            color: #0d0d0e;
+
+            &::placeholder {
+                opacity: 0.6;
+            }
+
+            &:focus {
+                border: solid 1px #4877EF ;
+            }
+
+            &::-ms-reveal {
+                display: none;
+            }
+            &::-ms-clear {
+                display: none;
+            }
+
+            &:focus {
+                border: solid 1px #4877EF ;
+            }
+        }
+
+        .form-label {
+
+            margin-bottom: 10px;
+            color: #000;
+        }
+    }
+
+    .oe_login_buttons {
+        .login-button {
+            background-color: #4877EF;
+            border-radius: 6px;
+            display: block;
+            padding: 13px;
+            text-align: center;
+            color: #ffffff;
+            width: 100%;
+            border: none;
+            outline: none;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+
+        a {
+            margin-top: 15px;
+            display: block;
+            color: #0060ad;
+            font-size: 14px;
+        }
+
+        .form_question {
+            font-size: 14px;
+            margin-top: 0 !important;
+            a {
+                color: #0060ad;
+            }
+        }
+    }
+}
